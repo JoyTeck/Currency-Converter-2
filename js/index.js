@@ -29,6 +29,7 @@ async function fetchCurrencies() {
     result.innerText = "Error fetching exchange rates.";
   }
 }
+
 async function convertCurrency() {
   const from = fromCurrency.value;
   const to = toCurrency.value;
