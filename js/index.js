@@ -9,9 +9,9 @@ const apiURL =
 
 async function fetchCurrencies() {
   try {
-    const response = await fetch(apiURL); // Fetch data from the provided API URL
+    const response = await fetch(apiURL);
     const data = await response.json();
-    const currencyCodes = Object.keys(data.conversion_rates); // Update to access conversion_rates
+    const currencyCodes = Object.keys(data.conversion_rates);
 
     currencyCodes.forEach((code) => {
       const option1 = document.createElement("option");
@@ -29,7 +29,6 @@ async function fetchCurrencies() {
     result.innerText = "Error fetching exchange rates.";
   }
 }
-
 async function convertCurrency() {
   const from = fromCurrency.value;
   const to = toCurrency.value;
@@ -39,7 +38,7 @@ async function convertCurrency() {
     try {
       const response = await fetch(apiURL);
       const data = await response.json();
-      const exchangeRate = data.conversion_rates[to]; // Access conversion_rates
+      const exchangeRate = data.conversion_rates[to];
 
       if (typeof exchangeRate !== "number") {
         console.error("Exchange rate is not a number:", exchangeRate);
@@ -48,16 +47,7 @@ async function convertCurrency() {
       }
 
       const convertedAmount = (amountValue * exchangeRate).toFixed(2);
-      result.innerText = { amountValue };
-      {
-        from;
-      }
-      {
-        convertedAmount;
-      }
-      {
-        to;
-      } // Use backticks for template literals
+      result.innerText = `${amountValue} ${from} = ${convertedAmount} ${to}`;
     } catch (error) {
       console.error("Error fetching data:", error);
       result.innerText = "Error fetching conversion rate.";
