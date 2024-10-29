@@ -1,6 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: blue;
+  background: radial-gradient(white, rgba(0, 0, 0, 0.2) 50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +15,6 @@ body {
 
 h1 {
   text-align: center;
-
   color: blue;
 }
 
@@ -17,7 +22,6 @@ h1 {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
